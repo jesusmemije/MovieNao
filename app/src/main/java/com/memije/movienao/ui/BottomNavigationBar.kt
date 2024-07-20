@@ -27,29 +27,21 @@ fun BottomNavigationBar() {
 
     NavigationBar(containerColor = BlackApp, contentColor = GrayApp) {
         NavigationBarItem(selected = index == 0, onClick = { index = 0 }, icon = {
-            Icon(
-                imageVector = Icons.Default.Home, contentDescription = "Home"
-            )
+            Icon(imageVector = Icons.Default.Home, contentDescription = "Home")
         }, label = { Text(text = "Home") }, colors = NavigationBarItemColors()
         )
         NavigationBarItem(selected = index == 1, onClick = { index = 1 }, icon = {
-            Icon(
-                imageVector = Icons.Default.Search, contentDescription = "Personal"
-            )
+            Icon(imageVector = Icons.Default.Search, contentDescription = "Personal")
         }, label = { Text(text = "Search") }, colors = NavigationBarItemColors()
         )
 
         NavigationBarItem(selected = index == 2, onClick = { index = 2 }, icon = {
-            Icon(
-                imageVector = Icons.Default.Favorite, contentDescription = "Personal"
-            )
+            Icon(imageVector = Icons.Default.Favorite, contentDescription = "Personal")
         }, label = { Text(text = "Favorites") }, colors = NavigationBarItemColors()
         )
 
         NavigationBarItem(selected = index == 3, onClick = { index = 3 }, icon = {
-            Icon(
-                imageVector = Icons.Default.Settings, contentDescription = "Personal"
-            )
+            Icon(imageVector = Icons.Default.Settings, contentDescription = "Personal")
         }, label = { Text(text = "Settings") }, colors = NavigationBarItemColors()
         )
     }

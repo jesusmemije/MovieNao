@@ -24,23 +24,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.memije.movienao.R
-import com.memije.movienao.ui.theme.BlackPrimary
+import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.MovieNaoTheme
-import com.memije.movienao.ui.theme.WhitePrimary
+import com.memije.movienao.ui.theme.WhiteApp
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(modifier: Modifier = Modifier) {
     val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .background(BlackPrimary)
+            .background(BlackApp)
             .verticalScroll(scrollState)
     ) {
         Image(
             painter = painterResource(id = R.drawable.poster),
             contentDescription = "poster",
-            Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
         PopularMovie("Popular Movie")
@@ -53,7 +53,7 @@ fun PopularMovie(title: String) {
     Column {
         Text(
             text = title,
-            color = WhitePrimary,
+            color = WhiteApp,
             fontSize = 20.sp,
             modifier = Modifier.padding(vertical = 16.dp, horizontal = 8.dp),
             fontWeight = FontWeight.Bold

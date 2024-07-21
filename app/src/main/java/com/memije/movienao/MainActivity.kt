@@ -6,13 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.memije.movienao.ui.HomeScreen
 import com.memije.movienao.ui.LandingScreen
@@ -22,6 +18,9 @@ import com.memije.movienao.ui.SignupScreen
 import com.memije.movienao.ui.theme.MovieNaoTheme
 import com.memije.movienao.ui.utils.BottomNavigationBar
 import com.memije.movienao.ui.utils.Routes
+import com.memije.movienao.ui.utils.TopAppBarCustom
+import com.memije.movienao.ui.utils.showBottomBar
+import com.memije.movienao.ui.utils.showTopBar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,11 +29,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             MovieNaoTheme {
                 val navController = rememberNavController()
-                Scaffold(bottomBar = {
-                    if (showBottomBar(navController)) BottomNavigationBar()
+                Scaffold(topBar = {
+                    if (showTopBar(navController)) TopAppBarCustom(navController)
+                }, bottomBar = {
+                    if (showBottomBar(navController)) BottomNavigationBar(navController)
                 }, content = { padding ->
                     NavHost(
-                        navController = navController, startDestination = Routes.Settings.route
+                        navController = navController, startDestination = Routes.Landing.route
                     ) {
                         composable(Routes.Landing.route) { LandingScreen(navController) }
                         composable(Routes.Login.route) { LoginScreen(navController) }
@@ -45,16 +46,5 @@ class MainActivity : ComponentActivity() {
                 })
             }
         }
-    }
-}
-
-@Composable
-fun showBottomBar(navController: NavHostController): Boolean {
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    return when (navBackStackEntry?.destination?.route) {
-        Routes.Landing.route -> false
-        Routes.Login.route -> false
-        Routes.SignUp.route -> false
-        else -> true
     }
 }

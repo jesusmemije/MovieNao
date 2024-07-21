@@ -16,17 +16,22 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.GrayApp
 import com.memije.movienao.ui.theme.GreenApp
 
 @Composable
-fun BottomNavigationBar() {
+fun BottomNavigationBar(navController: NavHostController) {
 
     var index by remember { mutableIntStateOf(0) }
 
     NavigationBar(containerColor = BlackApp, contentColor = GrayApp) {
-        NavigationBarItem(selected = index == 0, onClick = { index = 0 }, icon = {
+        NavigationBarItem(selected = index == 0, onClick = {
+            index = 0
+            navController.navigate(Routes.Home.route)
+        }, icon = {
             Icon(imageVector = Icons.Default.Home, contentDescription = "Home")
         }, label = { Text(text = "Home") }, colors = NavigationBarItemColors()
         )
@@ -40,7 +45,10 @@ fun BottomNavigationBar() {
         }, label = { Text(text = "Favorites") }, colors = NavigationBarItemColors()
         )
 
-        NavigationBarItem(selected = index == 3, onClick = { index = 3 }, icon = {
+        NavigationBarItem(selected = index == 3, onClick = {
+            index = 3
+            navController.navigate(Routes.Settings.route)
+        }, icon = {
             Icon(imageVector = Icons.Default.Settings, contentDescription = "Personal")
         }, label = { Text(text = "Settings") }, colors = NavigationBarItemColors()
         )
@@ -57,4 +65,16 @@ fun NavigationBarItemColors(): NavigationBarItemColors {
         disabledIconColor = GrayApp,
         disabledTextColor = GrayApp
     )
+}
+
+
+@Composable
+fun showBottomBar(navController: NavHostController): Boolean {
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    return when (navBackStackEntry?.destination?.route) {
+        Routes.Landing.route -> false
+        Routes.Login.route -> false
+        Routes.SignUp.route -> false
+        else -> true
+    }
 }

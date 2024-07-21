@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.memije.movienao.ui.LoginScreen
+import com.memije.movienao.ui.SignupScreen
 import com.memije.movienao.ui.theme.MovieNaoTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MovieNaoTheme {
-                LoginScreen()
+                SignupScreen()
             }
         }
     }

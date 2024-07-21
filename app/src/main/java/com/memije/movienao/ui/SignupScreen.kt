@@ -6,13 +6,20 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,9 +30,10 @@ import com.memije.movienao.ui.theme.WhiteApp
 import com.memije.movienao.ui.utils.Email
 import com.memije.movienao.ui.utils.LoginButton
 import com.memije.movienao.ui.utils.Password
+import com.memije.movienao.ui.utils.getCustomTextFieldColors
 
 @Composable
-fun LoginScreen() {
+fun SignupScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -34,31 +42,53 @@ fun LoginScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Login", color = WhiteApp, fontWeight = FontWeight.Bold, fontSize = 24.sp)
+        Text(text = "Sign Up", color = WhiteApp, fontWeight = FontWeight.Bold, fontSize = 24.sp)
         Spacer(modifier = Modifier.size(32.dp))
         Email()
         Spacer(modifier = Modifier.size(32.dp))
+        Username()
+        Spacer(modifier = Modifier.size(32.dp))
         Password()
         Spacer(modifier = Modifier.size(32.dp))
-        LoginButton("Login")
+        LoginButton("Create Account")
         Spacer(modifier = Modifier.size(32.dp))
-        CopySignUp()
+        CopyLogin()
     }
 }
 
 @Composable
-fun CopySignUp() {
+fun CopyLogin() {
     Row {
-        Text(text = "Haven’t made an account?", color = WhiteApp)
+        Text(text = "Already have an account?", color = WhiteApp)
         Spacer(modifier = Modifier.size(6.dp))
-        Text(text = "Sign Up", color = BlueApp)
+        Text(text = "Login", color = BlueApp)
     }
+}
+
+@Composable
+fun Username() {
+    OutlinedTextField(
+        value = "",
+        onValueChange = { },
+        modifier = Modifier.fillMaxWidth(),
+        label = { Text("Username") },
+        maxLines = 1,
+        singleLine = true,
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Filled.Person, contentDescription = "Icon Mail"
+            )
+        },
+        supportingText = { Text(text = "Inactive", color = WhiteApp) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+        colors = getCustomTextFieldColors()
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun LoginScreenPreview() {
+fun SignupScreenPreview() {
     MovieNaoTheme {
-        LoginScreen()
+        SignupScreen()
     }
 }

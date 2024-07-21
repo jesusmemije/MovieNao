@@ -14,3 +14,7 @@
 .cxx
 local.properties
 /.idea/compiler.xml
+/.idea/other.xml
+/.idea/deploymentTargetSelector.xml
+/.idea/gradle.xml
+/.idea/

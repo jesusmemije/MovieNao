@@ -4,12 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
-import com.memije.movienao.ui.BottomNavigationBar
-import com.memije.movienao.ui.HomeScreen
+import com.memije.movienao.ui.LandingScreen
 import com.memije.movienao.ui.theme.MovieNaoTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,11 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MovieNaoTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    bottomBar = { BottomNavigationBar() }) { innerPadding ->
-                    HomeScreen(Modifier.padding(innerPadding))
-                }
+                LandingScreen()
             }
         }
     }

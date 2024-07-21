@@ -73,7 +73,7 @@ fun PopularMovie(title: String) {
 @Composable
 fun ItemCardMovie() {
     Image(
-        painter = painterResource(id = R.drawable.movie_1),
+        painter = painterResource(id = R.drawable.movie_home),
         modifier = Modifier
             .fillMaxWidth()
             .height(180.dp)

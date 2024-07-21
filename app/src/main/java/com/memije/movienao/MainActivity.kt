@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.memije.movienao.ui.FavoritesScreen
 import com.memije.movienao.ui.HomeScreen
 import com.memije.movienao.ui.LandingScreen
 import com.memije.movienao.ui.LoginScreen
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity() {
                         composable(Routes.SignUp.route) { SignupScreen(navController) }
                         composable(Routes.Home.route) { HomeScreen(Modifier.padding(padding)) }
                         composable(Routes.Settings.route) { SettingsScreen(Modifier.padding(padding)) }
+                        composable(Routes.Favorites.route) { FavoritesScreen(Modifier.padding(padding)) }
                     }
                 })
             }

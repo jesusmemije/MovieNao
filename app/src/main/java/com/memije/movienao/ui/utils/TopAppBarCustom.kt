@@ -41,6 +41,7 @@ fun getScreenName(navController: NavHostController): String {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return when (navBackStackEntry?.destination?.route) {
         Routes.Settings.route -> "Settings"
+        Routes.Favorites.route -> "Favorites"
         else -> ""
     }
 }

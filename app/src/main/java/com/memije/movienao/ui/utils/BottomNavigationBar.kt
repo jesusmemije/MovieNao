@@ -36,12 +36,15 @@ fun BottomNavigationBar(navController: NavHostController) {
         }, label = { Text(text = "Home") }, colors = NavigationBarItemColors()
         )
         NavigationBarItem(selected = index == 1, onClick = { index = 1 }, icon = {
-            Icon(imageVector = Icons.Default.Search, contentDescription = "Personal")
+            Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
         }, label = { Text(text = "Search") }, colors = NavigationBarItemColors()
         )
 
-        NavigationBarItem(selected = index == 2, onClick = { index = 2 }, icon = {
-            Icon(imageVector = Icons.Default.Favorite, contentDescription = "Personal")
+        NavigationBarItem(selected = index == 2, onClick = {
+            index = 2
+            navController.navigate(Routes.Favorites.route)
+        }, icon = {
+            Icon(imageVector = Icons.Default.Favorite, contentDescription = "Favorites")
         }, label = { Text(text = "Favorites") }, colors = NavigationBarItemColors()
         )
 
@@ -49,7 +52,7 @@ fun BottomNavigationBar(navController: NavHostController) {
             index = 3
             navController.navigate(Routes.Settings.route)
         }, icon = {
-            Icon(imageVector = Icons.Default.Settings, contentDescription = "Personal")
+            Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings")
         }, label = { Text(text = "Settings") }, colors = NavigationBarItemColors()
         )
     }

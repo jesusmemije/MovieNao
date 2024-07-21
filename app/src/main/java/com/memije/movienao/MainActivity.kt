@@ -14,6 +14,7 @@ import com.memije.movienao.ui.FavoritesScreen
 import com.memije.movienao.ui.HomeScreen
 import com.memije.movienao.ui.LandingScreen
 import com.memije.movienao.ui.LoginScreen
+import com.memije.movienao.ui.SearchScreen
 import com.memije.movienao.ui.SettingsScreen
 import com.memije.movienao.ui.SignupScreen
 import com.memije.movienao.ui.theme.MovieNaoTheme
@@ -44,6 +45,7 @@ class MainActivity : ComponentActivity() {
                         composable(Routes.Home.route) { HomeScreen(Modifier.padding(padding)) }
                         composable(Routes.Settings.route) { SettingsScreen(Modifier.padding(padding)) }
                         composable(Routes.Favorites.route) { FavoritesScreen(Modifier.padding(padding)) }
+                        composable(Routes.Search.route) { SearchScreen(Modifier.padding(padding)) }
                     }
                 })
             }

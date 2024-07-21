@@ -42,6 +42,7 @@ fun getScreenName(navController: NavHostController): String {
     return when (navBackStackEntry?.destination?.route) {
         Routes.Settings.route -> "Settings"
         Routes.Favorites.route -> "Favorites"
+        Routes.Search.route -> "Search"
         else -> ""
     }
 }

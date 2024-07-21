@@ -35,7 +35,10 @@ fun BottomNavigationBar(navController: NavHostController) {
             Icon(imageVector = Icons.Default.Home, contentDescription = "Home")
         }, label = { Text(text = "Home") }, colors = NavigationBarItemColors()
         )
-        NavigationBarItem(selected = index == 1, onClick = { index = 1 }, icon = {
+        NavigationBarItem(selected = index == 1, onClick = {
+            index = 1
+            navController.navigate(Routes.Search.route)
+        }, icon = {
             Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
         }, label = { Text(text = "Search") }, colors = NavigationBarItemColors()
         )

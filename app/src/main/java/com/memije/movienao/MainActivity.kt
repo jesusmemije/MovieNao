@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.memije.movienao.ui.HomeScreen
 import com.memije.movienao.ui.LandingScreen
 import com.memije.movienao.ui.LoginScreen
+import com.memije.movienao.ui.SettingsScreen
 import com.memije.movienao.ui.SignupScreen
 import com.memije.movienao.ui.theme.MovieNaoTheme
 import com.memije.movienao.ui.utils.BottomNavigationBar
@@ -33,16 +34,13 @@ class MainActivity : ComponentActivity() {
                     if (showBottomBar(navController)) BottomNavigationBar()
                 }, content = { padding ->
                     NavHost(
-                        navController = navController, startDestination = Routes.Landing.route
+                        navController = navController, startDestination = Routes.Settings.route
                     ) {
                         composable(Routes.Landing.route) { LandingScreen(navController) }
                         composable(Routes.Login.route) { LoginScreen(navController) }
                         composable(Routes.SignUp.route) { SignupScreen(navController) }
-                        composable(Routes.Home.route) {
-                            HomeScreen(
-                                Modifier.padding(padding), navController
-                            )
-                        }
+                        composable(Routes.Home.route) { HomeScreen(Modifier.padding(padding)) }
+                        composable(Routes.Settings.route) { SettingsScreen(Modifier.padding(padding)) }
                     }
                 })
             }

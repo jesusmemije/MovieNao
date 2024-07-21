@@ -23,14 +23,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.memije.movienao.R
 import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.MovieNaoTheme
 import com.memije.movienao.ui.theme.WhiteApp
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, navigationController: NavHostController? = null) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     val scrollState = rememberScrollState()
     Column(
         modifier = modifier

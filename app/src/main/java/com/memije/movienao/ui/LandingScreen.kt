@@ -28,13 +28,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.memije.movienao.R
 import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.GreenApp
 import com.memije.movienao.ui.theme.MovieNaoTheme
+import com.memije.movienao.ui.utils.Routes
 
 @Composable
-fun LandingScreen() {
+fun LandingScreen(navController: NavHostController? = null) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
         Image(
             painter = painterResource(id = R.drawable.landing),
@@ -42,12 +44,12 @@ fun LandingScreen() {
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
-        BoxInfo()
+        BoxInfo(navController)
     }
 }
 
 @Composable
-fun BoxInfo() {
+fun BoxInfo(navController: NavHostController?) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -59,16 +61,16 @@ fun BoxInfo() {
         Spacer(modifier = Modifier.size(32.dp))
         ContentTextInfo()
         Spacer(modifier = Modifier.size(8.dp))
-        ContentButtonActions()
+        ContentButtonActions(navController)
     }
 }
 
 @Composable
-fun ContentButtonActions() {
+fun ContentButtonActions(navController: NavHostController?) {
     Button(
         shape = RoundedCornerShape(4.dp),
         modifier = Modifier.fillMaxWidth(),
-        onClick = { },
+        onClick = { navController?.navigate(Routes.Login.route) },
         colors = ButtonDefaults.buttonColors(
             containerColor = GreenApp, contentColor = BlackApp
         )
@@ -84,7 +86,7 @@ fun ContentButtonActions() {
     Button(
         shape = RoundedCornerShape(4.dp),
         modifier = Modifier.fillMaxWidth(),
-        onClick = { },
+        onClick = { navController?.navigate(Routes.SignUp.route) },
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent, contentColor = GreenApp
         ),

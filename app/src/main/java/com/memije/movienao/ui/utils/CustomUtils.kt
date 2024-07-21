@@ -30,6 +30,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.GreenApp
 import com.memije.movienao.ui.theme.WhiteApp
@@ -92,10 +93,10 @@ fun Password() {
 }
 
 @Composable
-fun LoginButton(name: String) {
+fun LoginButton(name: String, navController: NavHostController?) {
     Button(
         shape = RoundedCornerShape(4.dp),
-        onClick = { },
+        onClick = { navController?.navigate(Routes.Home.route) },
         modifier = Modifier.fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(
             containerColor = GreenApp, contentColor = BlackApp

@@ -1,4 +1,4 @@
-package com.memije.movienao.ui
+package com.memije.movienao.ui.utils
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite

@@ -1,6 +1,7 @@
 package com.memije.movienao.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.BlueApp
 import com.memije.movienao.ui.theme.MovieNaoTheme
@@ -23,9 +25,10 @@ import com.memije.movienao.ui.theme.WhiteApp
 import com.memije.movienao.ui.utils.Email
 import com.memije.movienao.ui.utils.LoginButton
 import com.memije.movienao.ui.utils.Password
+import com.memije.movienao.ui.utils.Routes
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavHostController? = null) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -40,18 +43,21 @@ fun LoginScreen() {
         Spacer(modifier = Modifier.size(32.dp))
         Password()
         Spacer(modifier = Modifier.size(32.dp))
-        LoginButton("Login")
+        LoginButton("Login", navController)
         Spacer(modifier = Modifier.size(32.dp))
-        CopySignUp()
+        CopySignUp(navController)
     }
 }
 
 @Composable
-fun CopySignUp() {
+fun CopySignUp(navController: NavHostController?) {
     Row {
         Text(text = "Haven’t made an account?", color = WhiteApp)
         Spacer(modifier = Modifier.size(6.dp))
-        Text(text = "Sign Up", color = BlueApp)
+        Text(
+            text = "Sign Up",
+            color = BlueApp,
+            modifier = Modifier.clickable { navController?.navigate(Routes.SignUp.route) })
     }
 }
 

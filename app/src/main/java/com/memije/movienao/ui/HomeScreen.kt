@@ -2,6 +2,7 @@ package com.memije.movienao.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -23,13 +24,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.memije.movienao.R
 import com.memije.movienao.ui.theme.BlackApp
 import com.memije.movienao.ui.theme.MovieNaoTheme
 import com.memije.movienao.ui.theme.WhiteApp
+import com.memije.movienao.ui.utils.Routes
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, navController: NavHostController? = null) {
     val scrollState = rememberScrollState()
     Column(
         modifier = modifier
@@ -43,13 +46,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
-        PopularMovie("Popular Movie")
-        PopularMovie("New and Noteworthy")
+        CarouselMovies("Popular Movie", navController)
+        CarouselMovies("New and Noteworthy", navController)
     }
 }
 
 @Composable
-fun PopularMovie(title: String) {
+fun CarouselMovies(title: String, navController: NavHostController?) {
     Column {
         Text(
             text = title,
@@ -62,22 +65,25 @@ fun PopularMovie(title: String) {
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(horizontal = 8.dp)
         ) {
-            item { ItemCardMovie() }
-            item { ItemCardMovie() }
-            item { ItemCardMovie() }
-            item { ItemCardMovie() }
+            item { ItemCardMovie(navController) }
+            item { ItemCardMovie(navController) }
+            item { ItemCardMovie(navController) }
+            item { ItemCardMovie(navController) }
         }
     }
 }
 
 @Composable
-fun ItemCardMovie() {
+fun ItemCardMovie(navController: NavHostController?) {
     Image(
         painter = painterResource(id = R.drawable.movie_home),
         modifier = Modifier
             .fillMaxWidth()
             .height(180.dp)
-            .clip(RoundedCornerShape(10.dp)),
+            .clip(RoundedCornerShape(10.dp))
+            .clickable {
+                navController?.navigate(Routes.MovieDetail.route)
+            },
         contentDescription = "Movie",
         contentScale = ContentScale.Crop
     )

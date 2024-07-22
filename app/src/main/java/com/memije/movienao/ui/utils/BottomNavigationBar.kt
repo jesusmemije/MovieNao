@@ -81,6 +81,7 @@ fun showBottomBar(navController: NavHostController): Boolean {
         Routes.Landing.route -> false
         Routes.Login.route -> false
         Routes.SignUp.route -> false
+        Routes.MovieDetail.route -> false
         else -> true
     }
 }

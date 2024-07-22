@@ -43,6 +43,7 @@ fun getScreenName(navController: NavHostController): String {
         Routes.Settings.route -> "Settings"
         Routes.Favorites.route -> "Favorites"
         Routes.Search.route -> "Search"
+        Routes.MovieDetail.route -> "Details"
         else -> ""
     }
 }

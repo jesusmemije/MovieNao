@@ -1,4 +1,4 @@
-package com.memije.movienao.ui.utils
+package com.memije.movienao.framework.base
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -18,9 +18,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.memije.movienao.ui.theme.BlackApp
-import com.memije.movienao.ui.theme.GrayApp
-import com.memije.movienao.ui.theme.GreenApp
+import com.memije.movienao.framework.theme.BlackApp
+import com.memije.movienao.framework.theme.GrayApp
+import com.memije.movienao.framework.theme.GreenApp
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {

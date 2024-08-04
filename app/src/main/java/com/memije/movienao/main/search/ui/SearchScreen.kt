@@ -1,4 +1,4 @@
-package com.memije.movienao.ui
+package com.memije.movienao.main.search.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,11 +23,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.memije.movienao.ui.theme.BlackApp
-import com.memije.movienao.ui.theme.DarkApp
-import com.memije.movienao.ui.theme.GreenApp
-import com.memije.movienao.ui.theme.MovieNaoTheme
-import com.memije.movienao.ui.theme.WhiteApp
+import com.memije.movienao.framework.theme.BlackApp
+import com.memije.movienao.framework.theme.DarkApp
+import com.memije.movienao.framework.theme.GreenApp
+import com.memije.movienao.framework.theme.MovieNaoTheme
+import com.memije.movienao.framework.theme.WhiteApp
 
 @Composable
 fun SearchScreen(modifier: Modifier = Modifier) {

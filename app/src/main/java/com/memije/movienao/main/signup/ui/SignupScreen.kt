@@ -1,4 +1,4 @@
-package com.memije.movienao.ui
+package com.memije.movienao.main.signup.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,15 +25,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.memije.movienao.ui.theme.BlackApp
-import com.memije.movienao.ui.theme.BlueApp
-import com.memije.movienao.ui.theme.MovieNaoTheme
-import com.memije.movienao.ui.theme.WhiteApp
-import com.memije.movienao.ui.utils.Email
-import com.memije.movienao.ui.utils.LoginButton
-import com.memije.movienao.ui.utils.Password
-import com.memije.movienao.ui.utils.Routes
-import com.memije.movienao.ui.utils.getCustomTextFieldColors
+import com.memije.movienao.framework.base.Routes
+import com.memije.movienao.framework.components.Button
+import com.memije.movienao.framework.components.Email
+import com.memije.movienao.framework.components.Password
+import com.memije.movienao.framework.theme.BlackApp
+import com.memije.movienao.framework.theme.BlueApp
+import com.memije.movienao.framework.theme.MovieNaoTheme
+import com.memije.movienao.framework.theme.WhiteApp
+import com.memije.movienao.framework.utils.getCustomTextFieldColors
 
 @Composable
 fun SignupScreen(navController: NavHostController? = null) {
@@ -53,7 +53,7 @@ fun SignupScreen(navController: NavHostController? = null) {
         Spacer(modifier = Modifier.size(32.dp))
         Password()
         Spacer(modifier = Modifier.size(32.dp))
-        LoginButton("Create Account", navController)
+        Button("Create Account", navController)
         Spacer(modifier = Modifier.size(32.dp))
         CopyLogin(navController)
     }

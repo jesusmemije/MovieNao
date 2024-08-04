@@ -1,4 +1,4 @@
-package com.memije.movienao.ui.utils
+package com.memije.movienao.framework.base
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.memije.movienao.ui.theme.BlackApp
-import com.memije.movienao.ui.theme.WhiteApp
+import com.memije.movienao.framework.theme.BlackApp
+import com.memije.movienao.framework.theme.WhiteApp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

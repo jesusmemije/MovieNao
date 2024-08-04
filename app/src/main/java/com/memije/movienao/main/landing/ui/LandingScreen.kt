@@ -30,10 +30,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.memije.movienao.R
-import com.memije.movienao.framework.theme.BlackApp
-import com.memije.movienao.framework.theme.GreenApp
-import com.memije.movienao.framework.theme.MovieNaoTheme
-import com.memije.movienao.framework.base.Routes
+import com.memije.movienao.core.theme.BlackApp
+import com.memije.movienao.core.theme.GreenApp
+import com.memije.movienao.core.theme.MovieNaoTheme
+import com.memije.movienao.core.base.Routes
 
 @Composable
 fun LandingScreen(navController: NavHostController? = null) {

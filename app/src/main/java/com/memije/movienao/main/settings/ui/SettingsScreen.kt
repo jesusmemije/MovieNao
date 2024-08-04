@@ -34,9 +34,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.memije.movienao.R
-import com.memije.movienao.framework.theme.BlackApp
-import com.memije.movienao.framework.theme.MovieNaoTheme
-import com.memije.movienao.framework.theme.WhiteApp
+import com.memije.movienao.core.theme.BlackApp
+import com.memije.movienao.core.theme.MovieNaoTheme
+import com.memije.movienao.core.theme.WhiteApp
 
 @Composable
 fun SettingsScreen(modifier: Modifier = Modifier) {

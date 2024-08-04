@@ -18,14 +18,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.memije.movienao.framework.base.Routes
-import com.memije.movienao.framework.components.Button
-import com.memije.movienao.framework.components.Email
-import com.memije.movienao.framework.components.Password
-import com.memije.movienao.framework.theme.BlackApp
-import com.memije.movienao.framework.theme.BlueApp
-import com.memije.movienao.framework.theme.MovieNaoTheme
-import com.memije.movienao.framework.theme.WhiteApp
+import com.memije.movienao.core.base.Routes
+import com.memije.movienao.core.components.Button
+import com.memije.movienao.core.components.Email
+import com.memije.movienao.core.components.Password
+import com.memije.movienao.core.theme.BlackApp
+import com.memije.movienao.core.theme.BlueApp
+import com.memije.movienao.core.theme.MovieNaoTheme
+import com.memije.movienao.core.theme.WhiteApp
 
 @Composable
 fun LoginScreen(navController: NavHostController? = null) {

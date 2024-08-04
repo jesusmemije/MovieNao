@@ -1,4 +1,4 @@
-package com.memije.movienao.framework.base
+package com.memije.movienao.core.base
 
 sealed class Routes(val route: String) {
     data object Landing: Routes("landing")

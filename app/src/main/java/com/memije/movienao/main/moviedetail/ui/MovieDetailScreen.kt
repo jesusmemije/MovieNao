@@ -25,9 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.memije.movienao.R
-import com.memije.movienao.framework.theme.BlackApp
-import com.memije.movienao.framework.theme.GrayLightApp
-import com.memije.movienao.framework.theme.MovieNaoTheme
+import com.memije.movienao.core.theme.BlackApp
+import com.memije.movienao.core.theme.GrayLightApp
+import com.memije.movienao.core.theme.MovieNaoTheme
 
 @Composable
 fun MovieDetailScreen(modifier: Modifier = Modifier) {

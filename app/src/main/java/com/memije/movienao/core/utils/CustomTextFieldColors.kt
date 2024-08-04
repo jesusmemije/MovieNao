@@ -1,11 +1,11 @@
-package com.memije.movienao.framework.utils
+package com.memije.movienao.core.utils
 
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.memije.movienao.framework.theme.GreenApp
-import com.memije.movienao.framework.theme.WhiteApp
+import com.memije.movienao.core.theme.GreenApp
+import com.memije.movienao.core.theme.WhiteApp
 
 @Composable
 fun getCustomTextFieldColors(): TextFieldColors {

@@ -1,4 +1,4 @@
-package com.memije.movienao.framework.theme
+package com.memije.movienao.core.theme
 
 import androidx.compose.ui.graphics.Color
 

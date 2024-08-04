@@ -23,11 +23,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.memije.movienao.framework.theme.BlackApp
-import com.memije.movienao.framework.theme.DarkApp
-import com.memije.movienao.framework.theme.GreenApp
-import com.memije.movienao.framework.theme.MovieNaoTheme
-import com.memije.movienao.framework.theme.WhiteApp
+import com.memije.movienao.core.theme.BlackApp
+import com.memije.movienao.core.theme.DarkApp
+import com.memije.movienao.core.theme.GreenApp
+import com.memije.movienao.core.theme.MovieNaoTheme
+import com.memije.movienao.core.theme.WhiteApp
 
 @Composable
 fun SearchScreen(modifier: Modifier = Modifier) {

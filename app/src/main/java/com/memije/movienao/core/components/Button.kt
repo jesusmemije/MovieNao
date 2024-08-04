@@ -1,4 +1,4 @@
-package com.memije.movienao.framework.components
+package com.memije.movienao.core.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,9 +12,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.memije.movienao.framework.base.Routes
-import com.memije.movienao.framework.theme.BlackApp
-import com.memije.movienao.framework.theme.GreenApp
+import com.memije.movienao.core.base.Routes
+import com.memije.movienao.core.theme.BlackApp
+import com.memije.movienao.core.theme.GreenApp
 
 @Composable
 fun Button(name: String, navController: NavHostController?) {

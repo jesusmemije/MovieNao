@@ -18,12 +18,12 @@ import com.memije.movienao.main.moviedetail.ui.MovieDetailScreen
 import com.memije.movienao.main.search.ui.SearchScreen
 import com.memije.movienao.main.settings.ui.SettingsScreen
 import com.memije.movienao.main.signup.ui.SignupScreen
-import com.memije.movienao.framework.theme.MovieNaoTheme
-import com.memije.movienao.framework.base.BottomNavigationBar
-import com.memije.movienao.framework.base.Routes
-import com.memije.movienao.framework.base.TopAppBarCustom
-import com.memije.movienao.framework.base.showBottomBar
-import com.memije.movienao.framework.base.showTopBar
+import com.memije.movienao.core.theme.MovieNaoTheme
+import com.memije.movienao.core.base.BottomNavigationBar
+import com.memije.movienao.core.base.Routes
+import com.memije.movienao.core.base.TopAppBarCustom
+import com.memije.movienao.core.base.showBottomBar
+import com.memije.movienao.core.base.showTopBar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

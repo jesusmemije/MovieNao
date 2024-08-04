@@ -1,4 +1,4 @@
-package com.memije.movienao.framework.theme
+package com.memije.movienao.core.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

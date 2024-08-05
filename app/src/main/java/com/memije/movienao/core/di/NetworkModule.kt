@@ -1,6 +1,7 @@
 package com.memije.movienao.core.di
 
 import com.memije.movienao.main.home.data.network.MovieClient
+import com.memije.movienao.main.moviedetail.data.network.MovieDetailClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,8 +25,14 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideMovieClient(retrofit: Retrofit) : MovieClient {
+    fun provideMovieClient(retrofit: Retrofit): MovieClient {
         return retrofit.create(MovieClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMovieDetailClient(retrofit: Retrofit): MovieDetailClient {
+        return retrofit.create(MovieDetailClient::class.java)
     }
 
 }

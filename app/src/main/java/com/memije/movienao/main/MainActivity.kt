@@ -28,12 +28,14 @@ import com.memije.movienao.core.base.TopAppBarCustom
 import com.memije.movienao.core.base.showBottomBar
 import com.memije.movienao.core.base.showTopBar
 import com.memije.movienao.main.home.ui.HomeViewModel
+import com.memije.movienao.main.moviedetail.ui.MovieDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val homeViewModel: HomeViewModel by viewModels()
+    private val movieDetailViewModel: MovieDetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +62,7 @@ class MainActivity : ComponentActivity() {
                             Routes.MovieDetail.route,
                             listOf(navArgument("id") { type = NavType.LongType })
                         ) { backStackEntry ->
-                            MovieDetailScreen(Modifier.padding(padding), backStackEntry.arguments?.getLong("id") ?: 0, homeViewModel)
+                            MovieDetailScreen(Modifier.padding(padding), backStackEntry.arguments?.getLong("id") ?: 0, movieDetailViewModel)
                         }
                     }
                 })

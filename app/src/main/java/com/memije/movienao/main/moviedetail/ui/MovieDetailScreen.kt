@@ -15,40 +15,48 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.memije.movienao.R
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.GrayLightApp
-import com.memije.movienao.main.home.ui.HomeViewModel
+import com.memije.movienao.main.moviedetail.data.network.response.MovieDetailResponse
 
 @Composable
-fun MovieDetailScreen(modifier: Modifier = Modifier, id: Long, homeViewModel: HomeViewModel) {
+fun MovieDetailScreen(
+    modifier: Modifier = Modifier,
+    id: Long,
+    movieDetailViewModel: MovieDetailViewModel,
+) {
     val scrollState = rememberScrollState()
-
-    homeViewModel.getMovieDetail()
-
-
+    val movieDetail = movieDetailViewModel.movieDetail.observeAsState()
+    movieDetailViewModel.getMovieDetail(id)
     Column(
         modifier = modifier
             .fillMaxSize()
             .background(BlackApp)
             .verticalScroll(scrollState)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.movie_cover),
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data("https://image.tmdb.org/t/p/original/" + movieDetail.value?.posterPath).crossfade(true)
+                .build(),
             contentDescription = "Movie Cover",
             modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.size(16.dp))
-        ContentDescription()
+        ContentDescription(movieDetail.value)
         Spacer(modifier = Modifier.size(16.dp))
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
@@ -105,10 +113,10 @@ fun Episodes() {
 }
 
 @Composable
-fun ContentDescription() {
+fun ContentDescription(movie: MovieDetailResponse?) {
     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
         Text(
-            text = "The Glory", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.White
+            text = movie?.originalTitle ?: "", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.White
         )
         Spacer(modifier = Modifier.size(8.dp))
         Row(horizontalArrangement = Arrangement.Center) {
@@ -125,7 +133,7 @@ fun ContentDescription() {
             color = Color.White,
             fontSize = 14.sp,
             textAlign = TextAlign.Justify,
-            text = "A young woman, bullied to the point of deciding to drop out of school, plans the best way to get revenge. After becoming a primary school teacher, she takes in the son of the man who tormented her the most to enact her vengeance."
+            text = movie?.overview ?: ""
         )
         Spacer(modifier = Modifier.size(8.dp))
         Row {

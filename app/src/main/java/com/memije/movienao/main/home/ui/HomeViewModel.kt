@@ -49,8 +49,4 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
-
-    fun getMovieDetail() {
-        TODO("Not yet implemented")
-    }
 }

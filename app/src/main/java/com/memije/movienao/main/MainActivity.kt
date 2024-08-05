@@ -8,9 +8,11 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.memije.movienao.main.favorites.ui.FavoritesScreen
 import com.memije.movienao.main.home.ui.HomeScreen
 import com.memije.movienao.main.landing.ui.LandingScreen
@@ -54,7 +56,12 @@ class MainActivity : ComponentActivity() {
                         composable(Routes.Settings.route) { SettingsScreen(Modifier.padding(padding)) }
                         composable(Routes.Favorites.route) { FavoritesScreen(Modifier.padding(padding)) }
                         composable(Routes.Search.route) { SearchScreen(Modifier.padding(padding)) }
-                        composable(Routes.MovieDetail.route) { MovieDetailScreen(Modifier.padding(padding)) }
+                        composable(
+                            Routes.MovieDetail.route,
+                            listOf(navArgument("id") { type = NavType.LongType })
+                        ) { backStackEntry ->
+                            MovieDetailScreen(Modifier.padding(padding), backStackEntry.arguments?.getLong("id") ?: 0, homeViewModel)
+                        }
                     }
                 })
             }

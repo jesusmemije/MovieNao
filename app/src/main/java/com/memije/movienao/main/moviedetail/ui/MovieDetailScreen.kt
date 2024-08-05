@@ -21,17 +21,20 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.memije.movienao.R
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.GrayLightApp
-import com.memije.movienao.core.theme.MovieNaoTheme
+import com.memije.movienao.main.home.ui.HomeViewModel
 
 @Composable
-fun MovieDetailScreen(modifier: Modifier = Modifier) {
+fun MovieDetailScreen(modifier: Modifier = Modifier, id: Long, homeViewModel: HomeViewModel) {
     val scrollState = rememberScrollState()
+
+    homeViewModel.getMovieDetail()
+
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -143,13 +146,5 @@ fun ContentDescription() {
             Text(color = Color.White, fontSize = 14.sp, text = "Genre : ")
             Text(color = Color.White, fontSize = 14.sp, text = "Revenge, Psychological Thriller")
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MovieDetailScreenPreview() {
-    MovieNaoTheme {
-        MovieDetailScreen()
     }
 }

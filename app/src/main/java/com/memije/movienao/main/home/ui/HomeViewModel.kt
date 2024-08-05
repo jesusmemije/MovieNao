@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.memije.movienao.main.home.data.network.response.Result
-import com.memije.movienao.main.home.domain.GetMoviesUseCase
+import com.memije.movienao.main.home.domain.GetPopularMoviesUseCase
 import com.memije.movienao.main.home.domain.GetTopMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getMoviesUseCase: GetMoviesUseCase,
+    private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
     private val getTopMoviesUseCase: GetTopMoviesUseCase
 ) : ViewModel() {
 
@@ -26,10 +26,10 @@ class HomeViewModel @Inject constructor(
     private val _error = MutableLiveData<Boolean>()
     val error: LiveData<Boolean> = _error
 
-    fun getMovies() {
+    fun getPopularMovies() {
         viewModelScope.launch {
             runCatching {
-                getMoviesUseCase()
+                getPopularMoviesUseCase()
             }.onSuccess { response ->
                 _popularMovies.postValue(response.results)
             }.onFailure {
@@ -48,5 +48,9 @@ class HomeViewModel @Inject constructor(
                 _error.postValue(true)
             }
         }
+    }
+
+    fun getMovieDetail() {
+        TODO("Not yet implemented")
     }
 }

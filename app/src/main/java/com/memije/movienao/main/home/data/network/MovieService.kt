@@ -6,9 +6,9 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MovieService @Inject constructor(private val movieClient: MovieClient) {
-    suspend fun getMovies(): MovieResponse {
+    suspend fun getPopularMovies(): MovieResponse {
         return withContext(Dispatchers.IO) {
-            val response = movieClient.getMovies()
+            val response = movieClient.getPopularMovies()
             response.body()!!
         }
     }

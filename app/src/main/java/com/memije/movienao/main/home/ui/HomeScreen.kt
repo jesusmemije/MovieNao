@@ -48,7 +48,7 @@ fun HomeScreen(
     val popularMovies = homeViewModel.popularMovies.observeAsState()
     val topMovies = homeViewModel.topMovies.observeAsState()
 
-    homeViewModel.getMovies()
+    homeViewModel.getPopularMovies()
     homeViewModel.getTopMovies()
 
     Column(
@@ -110,13 +110,13 @@ fun ItemCardMovie(navController: NavHostController?, movie: Result) {
                 .fillMaxSize()
                 .clip(RoundedCornerShape(10.dp))
                 .clickable {
-                    navController?.navigate(Routes.MovieDetail.route)
+                    navController?.navigate(Routes.MovieDetail.createRoute(movie.id))
                 },
             contentDescription = "Movie",
             contentScale = ContentScale.Crop
         )
         Text(
-            text = movie.title ?: movie.name.orEmpty(),
+            text = movie.title,
             color = Color.White,
             maxLines = 1,
             softWrap = false,

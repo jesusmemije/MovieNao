@@ -71,13 +71,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
+    // okHttp3
+    implementation(libs.okhttp)
+
+    // Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+    // LiveData
     implementation (libs.androidx.runtime.livedata)
 
-    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+    implementation(libs.coil.compose)
 }

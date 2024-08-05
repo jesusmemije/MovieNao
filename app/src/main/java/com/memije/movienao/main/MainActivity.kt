@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
                     if (showBottomBar(navController)) BottomNavigationBar(navController)
                 }, content = { padding ->
                     NavHost(
-                        navController = navController, startDestination = Routes.Landing.route
+                        navController = navController, startDestination = Routes.Home.route
                     ) {
                         composable(Routes.Landing.route) { LandingScreen(navController) }
                         composable(Routes.Login.route) { LoginScreen(navController) }

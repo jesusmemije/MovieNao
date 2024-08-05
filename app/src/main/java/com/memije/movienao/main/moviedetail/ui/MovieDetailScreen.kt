@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.memije.movienao.R
+import com.memije.movienao.core.base.Constant
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.GrayLightApp
 import com.memije.movienao.main.moviedetail.data.network.response.MovieDetailResponse
@@ -49,7 +50,7 @@ fun MovieDetailScreen(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data("https://image.tmdb.org/t/p/original/" + movieDetail.value?.posterPath).crossfade(true)
+                .data(Constant.URL_IMAGES + movieDetail.value?.posterPath).crossfade(true)
                 .build(),
             contentDescription = "Movie Cover",
             modifier = Modifier.fillMaxWidth(),

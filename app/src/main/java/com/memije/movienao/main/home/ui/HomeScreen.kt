@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
@@ -33,6 +34,7 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.memije.movienao.R
+import com.memije.movienao.core.base.Constant
 import com.memije.movienao.core.base.Routes
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.WhiteApp
@@ -98,16 +100,15 @@ fun CarouselMovies(
 @Composable
 fun ItemCardMovie(navController: NavHostController?, movie: Result) {
     Column(
-        modifier = Modifier
-            .width(120.dp)
-            .fillMaxHeight()
+        modifier = Modifier.fillMaxSize()
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data("https://image.tmdb.org/t/p/original/" + movie.posterPath).crossfade(true)
+                .data(Constant.URL_IMAGES + movie.posterPath).crossfade(true)
                 .build(),
             modifier = Modifier
-                .fillMaxSize()
+                .width(120.dp)
+                .height(180.dp)
                 .clip(RoundedCornerShape(10.dp))
                 .clickable {
                     navController?.navigate(Routes.MovieDetail.createRoute(movie.id))
@@ -116,6 +117,7 @@ fun ItemCardMovie(navController: NavHostController?, movie: Result) {
             contentScale = ContentScale.Crop
         )
         Text(
+            modifier = Modifier.width(120.dp),
             text = movie.title,
             color = Color.White,
             maxLines = 1,

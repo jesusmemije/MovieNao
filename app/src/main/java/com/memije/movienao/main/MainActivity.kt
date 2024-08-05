@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
@@ -24,8 +25,14 @@ import com.memije.movienao.core.base.Routes
 import com.memije.movienao.core.base.TopAppBarCustom
 import com.memije.movienao.core.base.showBottomBar
 import com.memije.movienao.core.base.showTopBar
+import com.memije.movienao.main.home.ui.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val homeViewModel: HomeViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,7 +50,7 @@ class MainActivity : ComponentActivity() {
                         composable(Routes.Landing.route) { LandingScreen(navController) }
                         composable(Routes.Login.route) { LoginScreen(navController) }
                         composable(Routes.SignUp.route) { SignupScreen(navController) }
-                        composable(Routes.Home.route) { HomeScreen(Modifier.padding(padding), navController) }
+                        composable(Routes.Home.route) { HomeScreen(Modifier.padding(padding), navController, homeViewModel) }
                         composable(Routes.Settings.route) { SettingsScreen(Modifier.padding(padding)) }
                         composable(Routes.Favorites.route) { FavoritesScreen(Modifier.padding(padding)) }
                         composable(Routes.Search.route) { SearchScreen(Modifier.padding(padding)) }

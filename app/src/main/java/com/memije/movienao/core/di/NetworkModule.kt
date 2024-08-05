@@ -1,5 +1,6 @@
 package com.memije.movienao.core.di
 
+import com.memije.movienao.core.base.AppConstants
 import com.memije.movienao.main.home.data.network.MovieClient
 import com.memije.movienao.main.moviedetail.data.network.MovieDetailClient
 import dagger.Module
@@ -10,7 +11,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -31,7 +31,7 @@ class NetworkModule {
         }
 
         return Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(AppConstants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient.build())
             .build()

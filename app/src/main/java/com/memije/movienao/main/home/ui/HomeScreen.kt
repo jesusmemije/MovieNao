@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -34,7 +33,7 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.memije.movienao.R
-import com.memije.movienao.core.base.Constant
+import com.memije.movienao.core.base.AppConstants
 import com.memije.movienao.core.base.Routes
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.WhiteApp
@@ -104,7 +103,7 @@ fun ItemCardMovie(navController: NavHostController?, movie: Result) {
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(Constant.URL_IMAGES + movie.posterPath).crossfade(true)
+                .data(AppConstants.URL_IMAGES + movie.posterPath).crossfade(true)
                 .build(),
             modifier = Modifier
                 .width(120.dp)

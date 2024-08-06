@@ -25,10 +25,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.memije.movienao.R
 import com.memije.movienao.core.base.AppConstants
+import com.memije.movienao.core.components.CarouselMovies
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.GrayLightApp
 import com.memije.movienao.main.moviedetail.data.network.response.MovieDetailResponse
@@ -37,11 +39,20 @@ import com.memije.movienao.main.moviedetail.data.network.response.MovieDetailRes
 fun MovieDetailScreen(
     modifier: Modifier = Modifier,
     id: Long,
+    navController: NavHostController,
     movieDetailViewModel: MovieDetailViewModel,
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
+
     val movieDetail = movieDetailViewModel.movieDetail.observeAsState()
+    val similarMovies = movieDetailViewModel.similarMovies.observeAsState()
+    val recommendedMovies = movieDetailViewModel.recommendedMovies.observeAsState()
+
     movieDetailViewModel.getMovieDetail(id)
+    movieDetailViewModel.getSimilarMovies(id)
+    movieDetailViewModel.getRecommendedMovies(id)
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -52,14 +63,23 @@ fun MovieDetailScreen(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(AppConstants.URL_IMAGES + movieDetail.value?.posterPath).crossfade(true)
                 .build(),
-            contentDescription = "Movie Cover",
+            contentDescription = movieDetail.value?.title,
             modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.size(16.dp))
         ContentDescription(movieDetail.value)
         Spacer(modifier = Modifier.size(16.dp))
-        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+
+        if (similarMovies.value?.isNotEmpty() == true) {
+            CarouselMovies(context.resources.getString(R.string.similar_movies), navController, similarMovies.value)
+        }
+
+        if (recommendedMovies.value?.isNotEmpty() == true) {
+            CarouselMovies(context.resources.getString(R.string.recommended_movies), navController, recommendedMovies.value)
+        }
+
+        /* Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
                 text = "Episodes",
                 color = Color.White,
@@ -69,7 +89,7 @@ fun MovieDetailScreen(
             Season("Season 1")
             Season("Season 2")
             Season("Season 3")
-        }
+        } */
     }
 }
 

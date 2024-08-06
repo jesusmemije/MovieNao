@@ -20,7 +20,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import com.memije.movienao.core.theme.WhiteApp
-import com.memije.movienao.core.utils.getCustomTextFieldColors
+import com.memije.movienao.core.utils.getTextFieldColorsCustom
 
 @Composable
 fun Password() {
@@ -32,7 +32,7 @@ fun Password() {
         onValueChange = { },
         modifier = Modifier.fillMaxWidth(),
         label = { Text("Password") },
-        colors = getCustomTextFieldColors(),
+        colors = getTextFieldColorsCustom(),
         singleLine = true,
         maxLines = 1,
         leadingIcon = {

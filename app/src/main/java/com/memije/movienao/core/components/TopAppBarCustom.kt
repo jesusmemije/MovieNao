@@ -1,4 +1,4 @@
-package com.memije.movienao.core.base
+package com.memije.movienao.core.components
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -9,11 +9,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.memije.movienao.R
+import com.memije.movienao.core.base.Routes
 import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.WhiteApp
 
@@ -39,11 +42,11 @@ fun TopAppBarCustom(navController: NavHostController) {
 @Composable
 fun getScreenName(navController: NavHostController): String {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val context = LocalContext.current
     return when (navBackStackEntry?.destination?.route) {
-        Routes.Settings.route -> "Settings"
-        Routes.Favorites.route -> "Favorites"
-        Routes.Search.route -> "Search"
-        Routes.MovieDetail.route -> "Details"
+        Routes.Settings.route -> context.resources.getString(R.string.settings)
+        Routes.Favorites.route -> context.resources.getString(R.string.favorites)
+        Routes.Search.route -> context.resources.getString(R.string.search)
         else -> ""
     }
 }
@@ -56,6 +59,7 @@ fun showTopBar(navController: NavHostController): Boolean {
         Routes.Login.route -> false
         Routes.SignUp.route -> false
         Routes.Home.route -> false
+        Routes.MovieDetail.route -> false
         else -> true
     }
 }

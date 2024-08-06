@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import com.memije.movienao.core.utils.getCustomTextFieldColors
+import com.memije.movienao.core.utils.getTextFieldColorsCustom
 
 @Composable
 fun Email() {
@@ -27,6 +27,6 @@ fun Email() {
             )
         },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-        colors = getCustomTextFieldColors()
+        colors = getTextFieldColorsCustom()
     )
 }

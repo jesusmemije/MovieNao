@@ -33,7 +33,7 @@ import com.memije.movienao.core.theme.BlackApp
 import com.memije.movienao.core.theme.BlueApp
 import com.memije.movienao.core.theme.MovieNaoTheme
 import com.memije.movienao.core.theme.WhiteApp
-import com.memije.movienao.core.utils.getCustomTextFieldColors
+import com.memije.movienao.core.utils.getTextFieldColorsCustom
 
 @Composable
 fun SignupScreen(navController: NavHostController? = null) {
@@ -87,7 +87,7 @@ fun Username() {
         },
         supportingText = { Text(text = "Inactive", color = WhiteApp) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-        colors = getCustomTextFieldColors()
+        colors = getTextFieldColorsCustom()
     )
 }
 

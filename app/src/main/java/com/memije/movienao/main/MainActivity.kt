@@ -22,11 +22,11 @@ import com.memije.movienao.main.search.ui.SearchScreen
 import com.memije.movienao.main.settings.ui.SettingsScreen
 import com.memije.movienao.main.signup.ui.SignupScreen
 import com.memije.movienao.core.theme.MovieNaoTheme
-import com.memije.movienao.core.base.BottomNavigationBar
+import com.memije.movienao.core.components.BottomNavigationCustom
 import com.memije.movienao.core.base.Routes
-import com.memije.movienao.core.base.TopAppBarCustom
-import com.memije.movienao.core.base.showBottomBar
-import com.memije.movienao.core.base.showTopBar
+import com.memije.movienao.core.components.TopAppBarCustom
+import com.memije.movienao.core.components.showBottomBar
+import com.memije.movienao.core.components.showTopBar
 import com.memije.movienao.main.home.ui.HomeViewModel
 import com.memije.movienao.main.moviedetail.ui.MovieDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(topBar = {
                     if (showTopBar(navController)) TopAppBarCustom(navController)
                 }, bottomBar = {
-                    if (showBottomBar(navController)) BottomNavigationBar(navController)
+                    if (showBottomBar(navController)) BottomNavigationCustom(navController)
                 }, content = { padding ->
                     NavHost(
                         navController = navController, startDestination = Routes.Home.route
@@ -62,7 +62,7 @@ class MainActivity : ComponentActivity() {
                             Routes.MovieDetail.route,
                             listOf(navArgument("id") { type = NavType.LongType })
                         ) { backStackEntry ->
-                            MovieDetailScreen(Modifier.padding(padding), backStackEntry.arguments?.getLong("id") ?: 0, movieDetailViewModel)
+                            MovieDetailScreen(Modifier.padding(padding), backStackEntry.arguments?.getLong("id") ?: 0, navController, movieDetailViewModel)
                         }
                     }
                 })

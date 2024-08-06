@@ -8,7 +8,7 @@ import com.memije.movienao.core.theme.GreenApp
 import com.memije.movienao.core.theme.WhiteApp
 
 @Composable
-fun getCustomTextFieldColors(): TextFieldColors {
+fun getTextFieldColorsCustom(): TextFieldColors {
     return OutlinedTextFieldDefaults.colors(
         unfocusedBorderColor = WhiteApp,
         unfocusedPlaceholderColor = WhiteApp,

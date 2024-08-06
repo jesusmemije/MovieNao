@@ -77,6 +77,7 @@ dependencies {
 
     // okHttp3
     implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
     // Dagger Hilt
     implementation(libs.hilt.android)
